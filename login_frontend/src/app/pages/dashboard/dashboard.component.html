@@ -1,0 +1,16 @@
+<section class="dash-wrap">
+  <div class="card">
+    <h2 class="title">Dashboard</h2>
+    <p class="subtitle">You are signed in.</p>
+
+    <div class="user-block" *ngIf="user() as u">
+      <div class="row"><strong>ID:</strong> <span>{{ u?.id }}</span></div>
+      <div class="row"><strong>Email:</strong> <span>{{ u?.email }}</span></div>
+      <div class="row" *ngIf="u?.name"><strong>Name:</strong> <span>{{ u?.name }}</span></div>
+    </div>
+
+    <div class="actions">
+      <app-button (click)="logout()">Log out</app-button>
+    </div>
+  </div>
+</section>

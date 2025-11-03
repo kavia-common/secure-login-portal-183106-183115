@@ -1,0 +1,39 @@
+<section class="login-wrap">
+  <div class="card">
+    <div class="card-header">
+      <div class="logo">🔐</div>
+      <h1 class="title">Welcome back</h1>
+      <p class="subtitle">Sign in to access your dashboard</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate class="form">
+      <app-input
+        label="Email"
+        [control]="getControl('emailOrUsername')"
+        type="email"
+        placeholder="you@example.com"
+        errorText="Please enter a valid email"
+        autocomplete="email"
+      ></app-input>
+
+      <div class="spacer"></div>
+
+      <app-input
+        label="Password"
+        [control]="getControl('password')"
+        type="password"
+        placeholder="********"
+        errorText="Password must be at least 6 characters"
+        autocomplete="current-password"
+      ></app-input>
+
+      <div class="error-banner" *ngIf="error">{{ error }}</div>
+
+      <div class="actions">
+        <app-button [disabled]="loading" type="submit">
+          {{ loading ? 'Signing in...' : 'Sign in' }}
+        </app-button>
+      </div>
+    </form>
+  </div>
+</section>
